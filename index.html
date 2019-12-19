@@ -10,6 +10,25 @@
     <title>Studio Ghibli Review</title>
 </head>
 <body>
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/ca/Studio_Ghibli_logo.svg/1200px-Studio_Ghibli_logo.svg.png">
+        <h1>Ghibli Review App</h1>
+    </header>
+    <div id="main">
+        <select><option disabled selected>Pick a film</option></select>
     
+        <div id="info">
+            <h3 id="title"></h3>
+            <p id="releaseYear"></p>
+            <p id="description"></p>
+        </div>
+    
+        <form>
+            <input type="text" placeholder="enter review" id="userInput"></input>
+            <input type="submit" id="reviewBtn"></input>
+        </form>
+    
+        <ul id="submittedReviews"></ul>
+    </div>
 </body>
 </html>
