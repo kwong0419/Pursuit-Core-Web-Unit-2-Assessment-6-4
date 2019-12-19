@@ -33,10 +33,14 @@ document.addEventListener("DOMContentLoaded", () => {
     let userInput = document.querySelector("#userInput");
     form.addEventListener("submit", (e) => {
         e.preventDefault();
-        let li = document.createElement("li");
-        li.innerHTML = `<strong>${title.innerText}:</strong> ${userInput.value}`;
-        document.querySelector("ul").appendChild(li);
-        userInput.value = "";
+        if(userInput.value && title.innerText){
+            let li = document.createElement("li");
+            li.innerHTML = `<strong>${title.innerText}:</strong> ${userInput.value}`;
+            document.querySelector("ul").appendChild(li);
+            userInput.value = "";
+        } else {
+            alert("Please select valid film & enter valid input..")
+        }
     })
 
 })
