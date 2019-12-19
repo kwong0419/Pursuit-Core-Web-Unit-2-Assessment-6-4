@@ -1,11 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let url = 'https://ghibliapi.herokuapp.com/films';
+
+    let url = "https://ghibliapi.herokuapp.com/films";
+    let title = document.querySelector("#title");
     
     const populateSelect = async () => {
         let res = await axios.get(url);
         let films = res.data;
         films.forEach(film => {
-            let option = document.createElement('option');
+            let option = document.createElement("option");
             option.innerText = film.title;
             document.querySelector("select").appendChild(option);
         })
@@ -17,8 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
     select.addEventListener("change", async (e) => {
         let res = await axios.get(url);
         let films = res.data;
-        debugger
-        let title = document.querySelector("#title");
         let releaseYear = document.querySelector("#releaseYear");
         films.forEach(film => {
             if(e.target.value === film.title){
@@ -29,6 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     })
 
+    let form = document.querySelector("form");
+    let userInput = document.querySelector("#userInput");
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let li = document.createElement("li");
+        li.innerHTML = `<strong>${title.innerText}:</strong> ${userInput.value}`;
+        document.querySelector("ul").appendChild(li);
+        userInput.value = "";
+    })
 
-    
 })
